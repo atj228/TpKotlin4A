@@ -15,7 +15,7 @@ buildscript {
 }
 
 allprojects {
-    repositories {
+    repositories { //Repository serveur où les gens où les gens déposent leur librairie
         google()
         jcenter()
     }
