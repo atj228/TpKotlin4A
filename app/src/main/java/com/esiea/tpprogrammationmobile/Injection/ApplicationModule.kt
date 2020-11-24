@@ -13,8 +13,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import java.security.AccessControlContext
 
-// just declare it
-val presentationModule = module{
+val presentationModule = module {
     factory { MainViewModel(get(), get()) }
 }
 
@@ -25,12 +24,11 @@ val domainModule = module {
 
 val dataModule = module {
     single { UserRepository(get()) }
-    single{ createDatabase(androidContext()) }
+    single { createDataBase(androidContext()) }
 }
 
-fun createDatabase(context: Context): DatabaseDao {
-    TODO("create a database")
-    val appDatabase =  Room.databaseBuilder(
+fun createDataBase(context: Context): DatabaseDao {
+    val appDatabase = Room.databaseBuilder(
         context,
         AppDatabase::class.java, "database-name"
     ).build()
